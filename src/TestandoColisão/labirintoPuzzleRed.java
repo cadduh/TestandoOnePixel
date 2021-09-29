@@ -7,7 +7,7 @@ import javax.swing.*;
 public class labirintoPuzzleRed extends JPanel implements ActionListener{
 	private Image[] labirintoImage = new Image[9];
 	private Image[] wall = new Image[20];
-	private Image bau;
+	private Image bau, fonte,lava;
 	private ImageIcon[] fundo = new ImageIcon[9]; 
 	private ImageIcon[] wall1 = new ImageIcon[20];
 	private Jogador jogador;
@@ -17,7 +17,7 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 	private int[] wallLagura = new int[9];	
 	private int[] wallY = new int[9];	
 	private Timer timer;
-	private int locarizacao = 1,locarizacaoWall = 1,wallInicio= 1,wallInicioY =1;
+	private int locarizacao = 4,locarizacaoWall = 1,wallInicio= 1,wallInicioY =1;
     
 	
 	public labirintoPuzzleRed() {
@@ -45,6 +45,12 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 		ImageIcon bauImg = new ImageIcon("bauOpen.png");
 		bau = bauImg.getImage();
 		
+		ImageIcon fonte1 = new ImageIcon("res/labirintoPuzzleRedImg/Fonte.png");
+		fonte = fonte1.getImage();
+		
+		ImageIcon lava1 = new ImageIcon("res/labirintoPuzzleRedImg/ChaoLava01.gif");
+		lava = lava1.getImage();
+		
 		
 		for(int i=1; i < wall.length;i++) {
 			wall1[i] = new ImageIcon("res/labirintoPuzzleRedImg/blue.png");
@@ -56,14 +62,7 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 		addKeyListener(new Teclado());
 		timer = new Timer(5, this);
 		timer.start();
-		
-
-		 
-
-		
-
-
-		
+	
 	}
 	
 	public void paint(Graphics g) {
@@ -71,25 +70,48 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 		desenha.drawImage(labirintoImage[locarizacao],0,0,larguraFrame-16,alturaFrame-38,this);
 		desenha.drawImage(jogador.getImgPlayer(),jogador.getX(),jogador.getY(),jogador.getLargura(),jogador.getAltura(),this);
 		if(locarizacao == 1) {
-//			desenha.drawImage(wall[1],0,175,185,100,this);
-//			desenha.drawImage(wall[2],400,175,185,100,this);
-//			desenha.drawImage(wall[3],0,0,185,18,this);
-//			desenha.drawImage(wall[4],400,0,185,18,this);
-			
+			desenha.drawImage(wall[1],0,175,185,100,this);
+			desenha.drawImage(wall[2],400,175,185,100,this);
+			desenha.drawImage(wall[3],0,0,185,18,this);
+			desenha.drawImage(wall[4],400,0,185,18,this);
+			desenha.drawImage(fonte,243,60,100, 100, this);
+			wall(100,243,60,125);
 			wall(185,0,175,100);
 			wall(185,400,175,100);
 			wall(185,0,0,50);
 			wall(185,400,0,50);
-		}else if (locarizacao == 5 ) {
+		}else if(locarizacao == 2) {
+			//desenha.drawImage(wall[11],0,175,600,85,this);
+			desenha.drawImage(wall[3],0,0,185,18,this);
+			desenha.drawImage(wall[4],400,0,185,18,this);
+			wall(600,0,179,88);
+			wall(185,0,0,40);
+			wall(185,400,0,40);
+		}else if (locarizacao == 4) {
+			//desenha.drawImage(wall[5],0,178,600,100,this);
+			//desenha.drawImage(wall[6],0,0,80,180,this);
+			//desenha.drawImage(wall[7],0,0,600,18,this);
+			for(int i=20,j = 10;i<90;i++,j++) {
+				desenha.drawImage(wall[9],420-i-j,0+i,10,10,this);
+				wall(10,420-i-j,0+i,10);
+		    }
+		
+			wall(600,0,178,100);
+			wall(58,0,0,180);
+			wall(600,0,0,27);
+			wall(220,30,0,109);
+		}
+		
+		
+		else if (locarizacao == 5 ) {
 //			desenha.drawImage(wall[5],0,178,600,100,this);
 //			desenha.drawImage(wall[6],526,0,80,180,this);
 //			desenha.drawImage(wall[7],0,0,600,18,this);
 //			desenha.drawImage(wall[8],320,0,220,95,this);
-			
-			for(int i=1;i<100;i+=20) {
-				for (int j=0; j < 20;j+=10) {
-					desenha.drawImage(wall[9],170+j,0+i,10,10,this);
-				}
+			desenha.drawImage(lava,370,100,140,75,this);
+			for(int i=20,j = 10;i<90;i++,j++) {
+					//desenha.drawImage(wall[9],150+i+j,0+i,10,10,this);
+					wall(10,150+i+j,0+i,10);
 			}
 			
 
