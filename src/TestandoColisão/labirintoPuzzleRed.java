@@ -17,7 +17,7 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 	private int[] wallLagura = new int[9];	
 	private int[] wallY = new int[9];	
 	private Timer timer;
-	private int locarizacao = 5,locarizacaoWall = 1,wallInicio= 1,wallInicioY =1;
+	private int locarizacao = 1,locarizacaoWall = 1,wallInicio= 1,wallInicioY =1;
     
 	
 	public labirintoPuzzleRed() {
