@@ -17,7 +17,7 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 	private int[] wallLagura = new int[9];	
 	private int[] wallY = new int[9];	
 	private Timer timer;
-	private int locarizacao = 4,locarizacaoWall = 1,wallInicio= 1,wallInicioY =1;
+	private int locarizacao = 5,locarizacaoWall = 1,wallInicio= 1,wallInicioY =1;
     
 	
 	public labirintoPuzzleRed() {
@@ -70,24 +70,37 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 		desenha.drawImage(labirintoImage[locarizacao],0,0,larguraFrame-16,alturaFrame-38,this);
 		desenha.drawImage(jogador.getImgPlayer(),jogador.getX(),jogador.getY(),jogador.getLargura(),jogador.getAltura(),this);
 		if(locarizacao == 1) {
-			desenha.drawImage(wall[1],0,175,185,100,this);
-			desenha.drawImage(wall[2],400,175,185,100,this);
-			desenha.drawImage(wall[3],0,0,185,18,this);
-			desenha.drawImage(wall[4],400,0,185,18,this);
+//			desenha.drawImage(wall[1],0,175,185,100,this);
+//			desenha.drawImage(wall[2],400,175,185,100,this);
+//			desenha.drawImage(wall[3],0,0,185,18,this);
+//			desenha.drawImage(wall[4],400,0,185,18,this);
 			desenha.drawImage(fonte,243,60,100, 100, this);
 			wall(100,243,60,125);
 			wall(185,0,175,100);
+			wall(600,0,300,60);
 			wall(185,400,175,100);
 			wall(185,0,0,50);
 			wall(185,400,0,50);
 		}else if(locarizacao == 2) {
 			//desenha.drawImage(wall[11],0,175,600,85,this);
-			desenha.drawImage(wall[3],0,0,185,18,this);
-			desenha.drawImage(wall[4],400,0,185,18,this);
+//			desenha.drawImage(wall[3],0,0,185,18,this);
+//			desenha.drawImage(wall[4],400,0,185,18,this);
 			wall(600,0,179,88);
 			wall(185,0,0,40);
 			wall(185,400,0,40);
-		}else if (locarizacao == 4) {
+		}else if (locarizacao == 3) {
+//			desenha.drawImage(wall[1],0,200,185,80,this);
+//			desenha.drawImage(wall[2],400,200,185,80,this);
+			//desenha.drawImage(wall[3],0,0,600,30,this);
+			//desenha.drawImage(wall[3],539,0,45,200,this);
+			desenha.drawImage(lava,100,70,84,84,this);
+			lava(84,100,74,84);
+			wall(49,0,0,200);
+			wall(600,0,0,40);
+			wall(185,0,200,80);
+			wall(185,400,200,80);
+			wall(45,539,0,200);
+		} else if (locarizacao == 4) {
 			//desenha.drawImage(wall[5],0,178,600,100,this);
 			//desenha.drawImage(wall[6],0,0,80,180,this);
 			//desenha.drawImage(wall[7],0,0,600,18,this);
@@ -95,31 +108,57 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 				desenha.drawImage(wall[9],420-i-j,0+i,10,10,this);
 				wall(10,420-i-j,0+i,10);
 		    }
-		
 			wall(600,0,178,100);
 			wall(58,0,0,180);
 			wall(600,0,0,27);
 			wall(220,30,0,109);
-		}
-		
-		
-		else if (locarizacao == 5 ) {
+		}else if (locarizacao == 5 ) {
 //			desenha.drawImage(wall[5],0,178,600,100,this);
 //			desenha.drawImage(wall[6],526,0,80,180,this);
 //			desenha.drawImage(wall[7],0,0,600,18,this);
 //			desenha.drawImage(wall[8],320,0,220,95,this);
 			desenha.drawImage(lava,370,100,140,75,this);
+			lava(140,370,100,75);
 			for(int i=20,j = 10;i<90;i++,j++) {
 					//desenha.drawImage(wall[9],150+i+j,0+i,10,10,this);
 					wall(10,150+i+j,0+i,10);
 			}
-			
-
-
 			wall(600,0,178,100);
 			wall(50,526,0,180);
 			wall(600,0,0,27);
 			wall(220,320,0,109);
+		}else if(locarizacao == 6) {
+			//desenha.drawImage(wall[8],0,0,185,310,this);
+			//desenha.drawImage(wall[8],400,0,185,68,this);
+			//desenha.drawImage(wall[8],400,210,185,60,this);
+			wall(185,400,210,60);
+			wall(185,0,0,310);
+			wall(185,400,0,68);
+		}else if (locarizacao == 7) {
+//			desenha.drawImage(wall[8],0,0,184,95,this);
+//			desenha.drawImage(wall[8],0,200,184,75,this);
+//			desenha.drawImage(wall[8],400,0,184,95,this);
+//			desenha.drawImage(wall[8],400,200,184,75,this);
+//			desenha.drawImage(wall[8],184,0,300,64,this);
+//			desenha.drawImage(wall[8],0,0,125,310,this);
+//			desenha.drawImage(wall[8],460,0,125,310,this);
+			wall(185,0,0,95);
+			wall(184,0,200,75);
+			wall(184,400,0,95);
+			wall(184,400,200,75);
+			wall(300,184,0,64);
+			wall(125,0,0,310);
+			wall(125,460,0,310);
+			
+		}else if(locarizacao == 8) {
+			//desenha.drawImage(wall[8],0,0,180,65,this);
+			//desenha.drawImage(wall[8],180,0,250,45,this);
+			//desenha.drawImage(wall[8],395,0,188,45,this);
+			wall(180,0,0,65);
+			wall(180,0,210,65);
+			wall(250,190,0,50);
+			wall(250,190,220,50);
+			wall(188,395,0,310);
 		}
 		
 		
@@ -131,18 +170,10 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 			if(locarizacao == 1) {
 				jogador.setX(20);
 	            locarizacao = 5;
-//	            wallLagura[5] = 600;
-//                wallY[5] = 175;
-//                wallInicio = 5;
-//                wallInicioY= 5;
 	            return true;
 			}else if(locarizacao == 2) {
 				jogador.setX(20);
 	            locarizacao = 1;
-//	            wallLagura[1] = 186;
-//	            wallY[1] = 175;
-//                wallInicio = 1;
-//                wallInicioY= 1;
 	            return true;
 			}else if(locarizacao == 4) {
 				jogador.setX(20);
@@ -162,19 +193,11 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 				if(locarizacao == 5) {
 					jogador.setX(530);
 		            locarizacao = 1;
-//		            wallLagura[1] = 186;
-//		            wallY[1] = 175;
-//	                wallInicio = 1;
-//	                wallInicioY= 1;
 				    return true;
 				    
 				}else if(locarizacao == 1) {
 					jogador.setX(530);
 		            locarizacao = 2;
-//		            wallLagura[5] = 600;
-//                    wallY[5] = 175;
-//                    wallInicio = 5;
-//                    wallInicioY= 5;
 				    return true;
 				}else if(locarizacao == 2) {
 					jogador.setX(530);
@@ -245,8 +268,46 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 		 int ladoEsquerdoWall = wallX;
 		 int ladoBaixoWall = wallY + altura;
 		 int ladoCimaWall = wallY;
+		 
 		 colisao(ladoDireitoWall, ladoEsquerdoWall,ladoCimaWall, ladoBaixoWall);
 	}
+	public void lava(int largura, int x , int y, int altura) {		 
+		 int lavaX = x;
+		 int lavaY = y;
+		 int ladoDireitolava = lavaX + largura;
+		 int ladoEsquerdolava = lavaX;
+		 int ladoBaixolava = lavaY + altura;
+		 int ladoCimalava = lavaY;
+		 
+		 colisaoLava(ladoBaixolava , ladoEsquerdolava, ladoCimalava, ladoBaixolava);
+	}
+	public void colisaoLava(int ladoDireitoWall, int ladoEsquerdoWall,int ladoCimaWall,int ladoBaixoWall) {
+		// COLISAO COM O BAU
+		 int aX = jogador.getX();
+		 int aY = jogador.getY();
+		 int ladoDireitoJogador = aX + jogador.getLargura() - 12;
+		 int ladoEsquerdoJogador = aX + 12;
+		 int ladoBaixoJogador = aY + jogador.getAltura() - 2;
+		 int ladoCimaJogador = aY + 35;
+		 
+		if (ladoDireitoJogador >= ladoEsquerdoWall && ladoDireitoJogador < ladoEsquerdoWall + 2 && ladoBaixoJogador >= ladoCimaWall
+				&& ladoCimaJogador <= ladoBaixoWall) {
+			System.out.println("VC MORREU");		
+		}else if (ladoEsquerdoJogador >= ladoDireitoWall - 2 && ladoEsquerdoJogador <= ladoDireitoWall && ladoBaixoJogador >= ladoCimaWall
+				&& ladoCimaJogador <= ladoBaixoWall) {
+			System.out.println("VC MORREU");
+		}else if (ladoDireitoJogador >= ladoEsquerdoWall && ladoEsquerdoJogador <= ladoDireitoWall && ladoBaixoJogador >= ladoCimaWall
+				&& ladoBaixoJogador <= ladoBaixoWall) {
+			System.out.println("VC MORREU");
+		}else if (ladoEsquerdoJogador <= ladoDireitoWall && ladoDireitoJogador >= ladoEsquerdoWall && ladoCimaJogador >= ladoBaixoWall - 2 
+				&& ladoCimaJogador <= ladoBaixoWall) {
+			System.out.println("VC MORREU");
+		}
+	 
+	
+	}
+	
+	
 
 	
 	
@@ -283,21 +344,6 @@ public class labirintoPuzzleRed extends JPanel implements ActionListener{
 		 esquerdo();
 		 cima();
 		 baixo();
-
-		 
-		 
-		
-		 
-
-	
-		 
-
-		 
-		 
-
-
-	    
-        
 		jogador.atualizar();
 		repaint();
 
